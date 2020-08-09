@@ -80,7 +80,7 @@ export class Pkg {
   get npxExecutable() {
     if (typeof this.pkg.bin === 'undefined') return undefined;
     if (typeof this.pkg.bin === 'string') {
-      if (this.isScoped) return `-p ${this.pkg.name}`;
+      if (this.isScoped) return `${this.pkg.name}`;
       return this.pkg.name;
     }
     const primary = Object.keys(this.pkg.bin)[0];

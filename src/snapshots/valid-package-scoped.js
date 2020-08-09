@@ -15,7 +15,7 @@ valid-package-scoped <ARG>
 ## Use directly via \`npx\`
 
 \`\`\`
-npx -p @reggi/valid-package-scoped <ARG>
+npx @reggi/valid-package-scoped <ARG>
 \`\`\`
 
 <!-- anything below this line will be safe from template removal -->"
