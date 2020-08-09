@@ -1,6 +1,6 @@
 {
   "name": "update-readme",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Updates the `README.md` of a NPM package to include content from `package.json`.",
   "repository": {
     "type": "git",
