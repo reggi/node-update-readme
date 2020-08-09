@@ -1,14 +1,15 @@
 {
-  "name": "@reggi/node-generate",
-  "version": "1.0.4",
-  "description": "This is a starter project for TypeScript and Node.js",
+  "name": "update-readme",
+  "version": "0.0.1",
+  "description": "Updates the `README.md` of a NPM package to include content from `package.json`.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/reggi/node-generate.git"
+    "url": "https://github.com/reggi/node-update-readme.git"
   },
   "license": "ISC",
   "author": "Thomas Reggi",
-  "main": "./build/mod.js",
+  "main": "./build/readme.js",
+  "usage": "update-readme",
   "scripts": {
     "build": "rm -rf ./build/ && tsc",
     "coverage:open": "open ./coverage/index.html",
@@ -24,10 +25,12 @@
   },
   "devDependencies": {
     "@types/chai": "^4.2.12",
+    "@types/chai-jest-snapshot": "^1.3.6",
     "@types/mocha": "^8.0.1",
     "@types/node": "^14.0.22",
     "@types/sinon": "^9.0.4",
     "chai": "^4.2.0",
+    "chai-jest-snapshot": "^2.0.0",
     "eslint": "^6.0.0",
     "gts": "^2.0.2",
     "mocha": "^8.1.1",
@@ -35,5 +38,8 @@
     "sinon": "^9.0.2",
     "ts-node": "^8.10.2",
     "typescript": "^3.9.6"
+  },
+  "engines": {
+    "node": ">=11.14.0"
   }
 }

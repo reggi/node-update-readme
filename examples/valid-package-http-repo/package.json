@@ -1,0 +1,9 @@
+{
+  "name": "valid-package-http-repo",
+  "repository": {
+    "url": "http://github.com/reggi/valid-package-http-repo.git"
+  },
+  "devDependencies": {
+    "mocha-snapshots": "^4.2.0"
+  }
+}

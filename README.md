@@ -1,11 +1,20 @@
-# node-generate
+# node-update-readme
 
-This is a starter project for TypeScript and Node.js
+[![semantic release](https://github.com/reggi/node-update-readme/workflows/semantic%20release/badge.svg)](https://github.com/reggi/node-update-readme/actions?query=workflow%3A%22semantic+release%22) [![coverage](https://github.com/reggi/node-update-readme/workflows/coverage/badge.svg)](https://reggi.github.io/node-update-readme/) [![npm](https://badge.fury.io/js/update-readme.svg)](https://www.npmjs.com/package/update-readme)
 
-* [x] TypeScript
-* [x] Mocha / Chai / Sinon
-* [x] https://github.com/google/gts
-  * [x] Prettier
-  * [x] eslint
-* [x] Uses `mod.ts` convention from deno
-* [x] Uses `mod_test.ts` convention from deno
+Updates the `README.md` of a NPM package to include content from `package.json`.
+
+## Install
+
+```
+npm install update-readme -g
+update-readme
+```
+
+## Use directly via `npx`
+
+```
+npx update-readme
+```
+
+<!-- anything below this line will be safe from template removal -->

@@ -9,6 +9,7 @@
     "src/**/*.ts"
   ],
   "exclude": [
-    "src/**/*_cli.ts"
+    "src/**/*_cli.ts",
+    "src/**/snapshots/*.js"
   ]
 }

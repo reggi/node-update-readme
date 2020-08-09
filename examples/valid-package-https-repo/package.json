@@ -1,0 +1,6 @@
+{
+  "name": "valid-package-https-repo",
+  "repository": {
+    "url": "https://github.com/reggi/valid-package-https-repo.git"
+  }
+}
