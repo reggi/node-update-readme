@@ -10,18 +10,18 @@
   "author": "Thomas Reggi",
   "main": "./build/readme.js",
   "bin": "./build/readme_cli.js",
-  "usage": "update-readme",
   "scripts": {
     "build": "rm -rf ./build/ && tsc",
     "coverage:open": "open ./coverage/index.html",
-    "open:coverage": "npm run coverage:open",
     "lint:check": "gts check",
     "lint:fix": "gts fix",
+    "open:coverage": "npm run coverage:open",
+    "require-check": "require-check ./",
+    "shebang-check": "shebang-check ./package.json",
     "sortme": "npx sort-package-json",
-    "test": "find ./src -name '*_test.ts' | xargs mocha -r ts-node/register -R spec",
-    "posttest": "npm run lint:check",
-    "test:coverage": "nyc --reporter=html --reporter=text --reporter=text-summary npm test && npm run open:coverage",
+    "test": "mocha -t 4000 -r ts-node/register \"src/**/*_test.ts\"",
     "test:coverage-ci": "nyc npm test",
+    "test:coverage-html": "nyc --reporter=html npm test",
     "ts-node": "ts-node"
   },
   "devDependencies": {
@@ -36,11 +36,14 @@
     "gts": "^2.0.2",
     "mocha": "^8.1.1",
     "nyc": "^15.1.0",
+    "require-check": "^1.0.2",
+    "shebang-check": "^1.0.5",
     "sinon": "^9.0.2",
     "ts-node": "^8.10.2",
     "typescript": "^3.9.6"
   },
   "engines": {
     "node": ">=11.14.0"
-  }
+  },
+  "usage": "update-readme"
 }
