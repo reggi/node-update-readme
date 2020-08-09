@@ -1,0 +1,7 @@
+{
+  "name": "valid-package-same-bin-name",
+  "bin": {
+    "valid-package-same-bin-name": "./example.js"
+  },
+  "usage": "CMD <ARG>"
+}
