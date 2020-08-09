@@ -1,0 +1,39 @@
+{
+  "name": "@reggi/node-generate",
+  "version": "1.0.4",
+  "description": "This is a starter project for TypeScript and Node.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/reggi/node-generate.git"
+  },
+  "license": "ISC",
+  "author": "Thomas Reggi",
+  "main": "./build/mod.js",
+  "scripts": {
+    "build": "rm -rf ./build/ && tsc",
+    "coverage:open": "open ./coverage/index.html",
+    "open:coverage": "npm run coverage:open",
+    "lint:check": "gts check",
+    "lint:fix": "gts fix",
+    "sortme": "npx sort-package-json",
+    "test": "find ./src -name '*_test.ts' | xargs mocha -r ts-node/register -R spec",
+    "posttest": "npm run lint:check",
+    "test:coverage": "nyc --reporter=html --reporter=text --reporter=text-summary npm test && npm run open:coverage",
+    "test:coverage-ci": "nyc npm test",
+    "ts-node": "ts-node"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.2.12",
+    "@types/mocha": "^8.0.1",
+    "@types/node": "^14.0.22",
+    "@types/sinon": "^9.0.4",
+    "chai": "^4.2.0",
+    "eslint": "^6.0.0",
+    "gts": "^2.0.2",
+    "mocha": "^8.1.1",
+    "nyc": "^15.1.0",
+    "sinon": "^9.0.2",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.6"
+  }
+}

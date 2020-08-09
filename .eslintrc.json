@@ -1,0 +1,10 @@
+{
+  "extends": "./node_modules/gts/",
+  "env": {
+    "mocha": true
+  },
+  "rules": {
+    "no-process-exit": "off"
+  },
+  "ignorePatterns": ["build"]
+}
