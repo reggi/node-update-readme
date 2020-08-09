@@ -3,7 +3,7 @@
 exports[`use-example`] = `
 "# @reggi/valid-package-scoped-bin-object
 
-[![npm](https://badge.fury.io/js/@reggi/valid-package-scoped-bin-object.svg)](https://www.npmjs.com/package/@reggi/valid-package-scoped-bin-object)
+[![npm](https://badge.fury.io/js/%40reggi%2Fvalid-package-scoped-bin-object.svg)](https://www.npmjs.com/package/@reggi/valid-package-scoped-bin-object)
 
 ## Install
 

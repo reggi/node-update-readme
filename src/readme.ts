@@ -168,7 +168,7 @@ export class ReadMe {
     }
     if (npmName) {
       badges['npm'] = {
-        image: `https://badge.fury.io/js/${npmName}.svg`,
+        image: `https://badge.fury.io/js/${encodeURIComponent(npmName)}.svg`,
         link: `https://www.npmjs.com/package/${npmName}`,
       };
     }
