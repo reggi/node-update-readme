@@ -1,0 +1,4 @@
+{
+  "name": "valid-package-bin-no-usage",
+  "bin": "./example.js"
+}

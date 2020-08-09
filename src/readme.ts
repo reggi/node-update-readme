@@ -6,11 +6,13 @@ export interface Info {
   npmName?: string;
   repoName?: string;
   githubUser?: string;
-  usage?: string;
+  usage: (command: string) => string | undefined;
   fileContent?: string;
   fileName?: string;
   filePath?: string;
   heading?: string;
+  npxExecutable?: string;
+  globalExecutable?: string;
   info: Info;
 }
 
@@ -18,6 +20,7 @@ interface PackageJSON {
   name?: string;
   usage?: string;
   description?: string;
+  bin?: {[key: string]: string} | string;
   repository?: {
     type?: string;
     url?: string;
@@ -65,25 +68,55 @@ export class Pkg {
   get githubUser(): string | undefined {
     return this.parseRepo().githubUser;
   }
-  get usage(): string | undefined {
-    return this.pkg.usage;
-  }
   get description(): string | undefined {
     return this.pkg.description;
   }
   get heading() {
     return this.repoName || this.npmName;
   }
+  get isScoped() {
+    return this.pkg.name && this.pkg.name.split('/').length === 2;
+  }
+  get npxExecutable() {
+    if (typeof this.pkg.bin === 'undefined') return undefined;
+    if (typeof this.pkg.bin === 'string') {
+      if (this.isScoped) return `-p ${this.pkg.name}`;
+      return this.pkg.name;
+    }
+    const primary = Object.keys(this.pkg.bin)[0];
+    if (this.isScoped) return `-p ${this.pkg.name} ${primary}`;
+    return `${this.pkg.name} ${primary}`;
+  }
+  get globalExecutable() {
+    if (typeof this.pkg.bin === 'undefined') return undefined;
+    if (typeof this.pkg.bin === 'string' && this.pkg.name) {
+      const split = this.pkg.name.split('/');
+      if (split.length === 2) return split[1];
+      return split[0];
+    }
+    const primary = Object.keys(this.pkg.bin)[0];
+    return primary;
+  }
+  get usage() {
+    return (command: string) => {
+      const usage = this.pkg.usage;
+      if (command && usage) return usage.replace('CMD', command);
+      return command;
+    };
+  }
   static async info(process: NodeJS.Process) {
     const pkg = await Pkg.load(process);
-    return {
+    const i: Omit<Info, 'info'> = {
       npmName: pkg.npmName,
       repoName: pkg.repoName,
       githubUser: pkg.githubUser,
-      usage: pkg.usage,
+      usage: pkg.usage.bind(pkg),
       description: pkg.description,
       heading: pkg.heading,
+      npxExecutable: pkg.npxExecutable,
+      globalExecutable: pkg.globalExecutable,
     };
+    return i;
   }
 }
 
@@ -147,21 +180,27 @@ export class ReadMe {
       return `[![${alt}](${badge.image})](${badge.link})`;
     });
   }
-  static npmInstall({npmName, usage}: Info) {
+  static npmInstall({npmName, globalExecutable, usage}: Info) {
     return npmName
       ? [
           '## Install',
           '',
           '```',
-          `npm install ${npmName}${usage ? ' -g' : ''}`,
-          ...(usage ? [`${usage}`] : []),
+          `npm install ${npmName}${globalExecutable ? ' -g' : ''}`,
+          ...(globalExecutable ? [`${usage(globalExecutable)}`] : []),
           '```',
         ]
       : [];
   }
-  static npxRun({usage}: Info) {
-    return usage
-      ? ['## Use directly via `npx`', '', '```', `npx ${usage}`, '```']
+  static npxRun({npxExecutable, usage}: Info) {
+    return npxExecutable
+      ? [
+          '## Use directly via `npx`',
+          '',
+          '```',
+          `npx ${usage(npxExecutable)}`,
+          '```',
+        ]
       : [];
   }
   static transform({heading, fileContent, info, description}: Info) {

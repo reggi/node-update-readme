@@ -1,5 +1,5 @@
 {
-  "name": "valid-package-usage",
+  "name": "@reggi/valid-package-scoped",
   "bin": "./example.js",
   "usage": "CMD <ARG>"
 }

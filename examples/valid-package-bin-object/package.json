@@ -1,0 +1,7 @@
+{
+  "name": "valid-package-bin-object",
+  "bin": {
+    "vpbo": "./example.js"
+  },
+  "usage": "CMD <ARG>"
+}

@@ -1,0 +1,7 @@
+{
+  "name": "@reggi/valid-package-scoped-bin-object",
+  "bin": {
+    "vpsbo": "./example.js"
+  },
+  "usage": "CMD <ARG>"
+}

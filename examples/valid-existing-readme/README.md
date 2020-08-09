@@ -5,14 +5,7 @@
 ## Install
 
 ```
-npm install valid-existing-readme -g
-package-usage <ARG>
-```
-
-## Use directly via `npx`
-
-```
-npx package-usage <ARG>
+npm install valid-existing-readme
 ```
 
 <!-- anything below this line will be safe from template removal -->
