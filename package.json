@@ -9,6 +9,7 @@
   "license": "ISC",
   "author": "Thomas Reggi",
   "main": "./build/readme.js",
+  "bin": "./build/readme_cli.js",
   "usage": "update-readme",
   "scripts": {
     "build": "rm -rf ./build/ && tsc",

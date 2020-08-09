@@ -9,3 +9,5 @@ coverage
 .releaserc
 .DS_Store
 .github
+examples
+snapshots
