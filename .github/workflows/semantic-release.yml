@@ -40,7 +40,7 @@ jobs:
     - run: npm ci
     - run: npm run lint:check
     - run: npm run build
-    - run: npm run shebang-check
+    - run: npm run shebang-check --if-present
     - run: npm run require-check
   publish-npm:
     needs: [test, coverage, checks]

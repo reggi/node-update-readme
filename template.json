@@ -1,0 +1,26 @@
+{
+  "source": "https://github.com/reggi/node-generate.git",
+  "ignore": [
+    "examples",
+    "src",
+    "README.md",
+    "package-lock.json",
+    ".git"
+  ],
+  "json": [
+    {
+      "name": "package.json",
+      "ignoreKeys": [
+        "main",
+        "name",
+        "version",
+        "dependencies",
+        "devDependencies",
+        "repository",
+        "description",
+        "usage",
+        "bin"
+      ]
+    }
+  ]
+}

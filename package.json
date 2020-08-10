@@ -20,6 +20,7 @@
     "shebang-check": "shebang-check ./package.json",
     "sortme": "npx sort-package-json",
     "test": "mocha -t 4000 -r ts-node/register \"src/**/*_test.ts\"",
+    "test:coverage": "npm run test:coverage-html && npm run open:coverage",
     "test:coverage-ci": "nyc npm test",
     "test:coverage-html": "nyc --reporter=html npm test",
     "test:update-snap": "CHAI_JEST_SNAPSHOT_UPDATE_ALL=true npm run test",
